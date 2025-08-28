@@ -27,6 +27,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
         .modal-content {
             background: rgba(255,255,255,0.1);
@@ -35,8 +36,10 @@
             border-radius: 20px;
             padding: 30px;
             max-width: 400px;
-            width: 90%;
+            width: 100%;
             animation: slideIn 0.3s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
         }
         @keyframes slideIn {
             from {
@@ -59,57 +62,63 @@
         .close:hover {
             opacity: 0.7;
         }
+        @media (max-width: 640px) {
+            .modal-content {
+                padding: 20px;
+                border-radius: 15px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="h-screen overflow-hidden" style="background-color: #1a4d3a;">
         <!-- Navigation Bar -->
-        <nav class="absolute top-6 left-6">
-            <div class="flex space-x-4">
-                <button class="px-6 py-3 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-50 transition-all duration-200 text-sm font-medium">
+        <nav class="absolute top-4 left-4 right-4 sm:top-6 sm:left-6 sm:right-auto">
+            <div class="flex space-x-2 sm:space-x-4 justify-center sm:justify-start">
+                <button class="px-4 py-2 sm:px-6 sm:py-3 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-50 transition-all duration-200 text-xs sm:text-sm font-medium">
                     About
                 </button>
-                <button class="px-6 py-3 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-50 transition-all duration-200 text-sm font-medium">
+                <button class="px-4 py-2 sm:px-6 sm:py-3 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-50 transition-all duration-200 text-xs sm:text-sm font-medium">
                     Services
                 </button>
-                <button id="contactBtn" class="px-6 py-3 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-50 transition-all duration-200 text-sm font-medium">
+                <button id="contactBtn" class="px-4 py-2 sm:px-6 sm:py-3 bg-black bg-opacity-30 text-white rounded-full hover:bg-opacity-50 transition-all duration-200 text-xs sm:text-sm font-medium">
                     Contact
                 </button>
             </div>
         </nav>
 
-        <div class="h-full flex items-center justify-center">
+        <div class="h-full flex items-center justify-center px-4">
             <div class="text-center">
-                <div class="mb-8 flex justify-center">
-                    <div class="w-32 h-32 bg-gradient-to-br from-emerald-400 to-green-600 rounded-full flex items-center justify-center shadow-2xl border-4 border-white border-opacity-20">
-                        <svg class="text-white w-16 h-16" fill="currentColor" viewBox="0 0 20 20">
+                <div class="mb-6 sm:mb-8 flex justify-center">
+                    <div class="w-20 h-20 sm:w-32 sm:h-32 bg-gradient-to-br from-emerald-400 to-green-600 rounded-full flex items-center justify-center shadow-2xl border-4 border-white border-opacity-20">
+                        <svg class="text-white w-10 h-10 sm:w-16 sm:h-16" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 0v12h8V4H6z" clip-rule="evenodd"></path>
                         </svg>
                     </div>
                 </div>
                 
-                <h1 class="text-8xl font-bold mb-4 tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-green-200 to-green-500" style="text-shadow: 0 0 40px rgba(255,255,255,0.3);">
+                <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-green-200 to-green-500" style="text-shadow: 0 0 40px rgba(255,255,255,0.3);">
                     GrandMegas
                 </h1>
                 
-                <div class="flex justify-center mb-6">
-                    <div class="h-1 w-48 bg-gradient-to-r from-transparent via-white to-transparent rounded-full opacity-60"></div>
+                <div class="flex justify-center mb-4 sm:mb-6">
+                    <div class="h-1 w-32 sm:w-48 bg-gradient-to-r from-transparent via-white to-transparent rounded-full opacity-60"></div>
                 </div>
                 
-                <p class="text-xl text-white text-opacity-80 font-light tracking-wide">
+                <p class="text-base sm:text-xl text-white text-opacity-80 font-light tracking-wide px-4">
                     Excellence in Business Solutions
                 </p>
                 
-                <div class="mt-8 flex justify-center space-x-2">
-                    <div class="w-3 h-3 bg-white bg-opacity-40 rounded-full animate-pulse"></div>
-                    <div class="w-3 h-3 bg-white bg-opacity-60 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
-                    <div class="w-3 h-3 bg-white bg-opacity-40 rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+                <div class="mt-6 sm:mt-8 flex justify-center space-x-2">
+                    <div class="w-2 h-2 sm:w-3 sm:h-3 bg-white bg-opacity-40 rounded-full animate-pulse"></div>
+                    <div class="w-2 h-2 sm:w-3 sm:h-3 bg-white bg-opacity-60 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+                    <div class="w-2 h-2 sm:w-3 sm:h-3 bg-white bg-opacity-40 rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
                 </div>
             </div>
         </div>
         
-        <div class="absolute bottom-6 left-0 right-0 text-center">
-            <p class="text-white text-opacity-60 text-sm font-light tracking-wide">
+        <div class="absolute bottom-4 sm:bottom-6 left-0 right-0 text-center px-4">
+            <p class="text-white text-opacity-60 text-xs sm:text-sm font-light tracking-wide">
                 Tampa All Rights Reserved 2025
             </p>
         </div>
@@ -120,49 +129,49 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="text-center">
-                <h2 class="text-2xl font-bold text-white mb-6">Contact Us</h2>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Contact Us</h2>
                 
-                <div class="space-y-4 text-left">
+                <div class="space-y-3 sm:space-y-4 text-left">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                            <svg class="text-white w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="text-white w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
                             </svg>
                         </div>
-                        <div>
-                            <p class="font-semibold text-white">(551) 333-0545</p>
-                            <p class="text-sm text-gray-300">Business Hotline</p>
+                        <div class="min-w-0 flex-1">
+                            <p class="font-semibold text-white text-sm sm:text-base break-words">(551) 333-0545</p>
+                            <p class="text-xs sm:text-sm text-gray-300">Business Hotline</p>
                         </div>
                     </div>
                     
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
-                            <svg class="text-white w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="text-white w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
                                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                             </svg>
                         </div>
-                        <div>
-                            <p class="font-semibold text-white">contact@grandmegas.com</p>
-                            <p class="text-sm text-gray-300">Email Support</p>
+                        <div class="min-w-0 flex-1">
+                            <p class="font-semibold text-white text-sm sm:text-base break-words">contact@grandmegas.com</p>
+                            <p class="text-xs sm:text-sm text-gray-300">Email Support</p>
                         </div>
                     </div>
                     
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                            <svg class="text-white w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="text-white w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
-                        <div>
-                            <p class="font-semibold text-white">18056 Arbor Crest Dr</p>
-                            <p class="text-sm text-gray-300">Tampa, FL 33647</p>
+                        <div class="min-w-0 flex-1">
+                            <p class="font-semibold text-white text-sm sm:text-base break-words">18056 Arbor Crest Dr</p>
+                            <p class="text-xs sm:text-sm text-gray-300">Tampa, FL 33647</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="mt-6 pt-4 border-t border-white border-opacity-20">
-                    <p class="text-sm text-gray-300 text-center">
+                <div class="mt-4 sm:mt-6 pt-4 border-t border-white border-opacity-20">
+                    <p class="text-xs sm:text-sm text-gray-300 text-center">
                         Ready to transform your business? Get in touch with our experts today.
                     </p>
                 </div>
